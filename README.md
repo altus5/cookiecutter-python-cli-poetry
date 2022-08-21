@@ -1,7 +1,7 @@
-[![CI Tests](https://github.com/msato-ok/cookiecutter-cli-poetry/actions/workflows/ci-tests.yml/badge.svg)](https://github.com/msato-ok/cookiecutter-cli-poetry/actions/workflows/ci-tests.yml)
+[![CI Tests](https://github.com/altus5/cookiecutter-python-cli-poetry/actions/workflows/ci-tests.yml/badge.svg)](https://github.com/altus5/cookiecutter-python-cli-poetry/actions/workflows/ci-tests.yml)
 
 
-# cookiecutter-cli-poetry
+# cookiecutter-python-cli-poetry
 Cookiecutter template configured with the following:
 
 - poetry
@@ -17,12 +17,12 @@ A Makefile has been included so you don't have to remember commands.
 
 ### Usage:
 
-    cookiecutter https://github.com/msato-ok/cookiecutter-cli-poetry.git
+    cookiecutter https://github.com/altus5/cookiecutter-python-cli-poetry.git
 
 eg:
 
-    $ cookiecutter https://github.com/msato-ok/cookiecutter-cli-poetry.git
-    You've downloaded /home/msato/.cookiecutters/cookiecutter-cli-poetry before. Is it okay to delete and re-download it? [yes]:
+    $ cookiecutter https://github.com/altus5/cookiecutter-python-cli-poetry.git
+    You've downloaded /home/msato/.cookiecutters/cookiecutter-python-cli-poetry before. Is it okay to delete and re-download it? [yes]:
     full_name [Altus-Five Inc.]:
     email [info@altus5.com]:
     github_name [altus5]:
