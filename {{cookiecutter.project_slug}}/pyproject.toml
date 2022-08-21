@@ -62,7 +62,7 @@ build-backend = "poetry.core.masonry.api"
 profile = "black"
 
 [tool.black]
-target-version = ['py38']
+target-version = ['py39']
 
 [tool.pytest.ini_options]
 # Example
