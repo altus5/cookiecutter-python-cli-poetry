@@ -5,19 +5,40 @@ root = true
 
 # Unix-style newlines with a newline ending every file
 [*]
+charset = utf-8
 end_of_line = lf
 insert_final_newline = true
+trim_trailing_whitespace = true
 
-# Matches multiple files with brace expansion notation
-# Set default charset
-[*.{js,py,yaml,yml,rst}]
-charset = utf-8
-
-# 4 space indentation
-[*.{py,rst}]
+[*.{py,rst,ini}]
 indent_style = space
 indent_size = 4
 
-# Tab indentation (no size specified)
+[*.py]
+line_length = 88
+known_first_party = cookiecutter_cli_poetry,config
+multi_line_output = 3
+default_section = THIRDPARTY
+recursive = true
+skip = venv/
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+
+[*.js]
+indent_style = space
+indent_size = 2
+
+[*.{html,css,scss,json,yml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
 [Makefile]
 indent_style = tab
+
+[nginx.conf]
+indent_style = space
+indent_size = 2

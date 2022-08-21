@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "cookiecutter-poetry"
+name = "cookiecutter-cli-poetry"
 version = "0.0.1"
 description = """
 Cookiecutter template for a python project with poetry and pytest
 and other goodies"""
-authors = ["Tim Hughes <thughes@thegoldfish.org>"]
+authors = ["Madoka Sato <msato@altus5.com>"]
 # Use identifier from https://spdx.org/licenses/
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/timhughes/cookiecutter-poetry"
-repository = "https://github.com/timhughes/cookiecutter-poetry"
-documentation = "https://github.com/timhughes/cookiecutter-poetry/blob/master/README.md"
+homepage = "https://github.com/msato-ok/cookiecutter-cli-poetry"
+repository = "https://github.com/msato-ok/cookiecutter-cli-poetry"
+documentation = "https://github.com/msato-ok/cookiecutter-cli-poetry/blob/master/README.md"
 classifiers = [
     # https://pypi.org/classifiers/
     "Environment :: Console",
@@ -18,10 +18,10 @@ classifiers = [
 ]
 [tool.poetry.urls]
 # If you publish you package on PyPI, these will appear in the Project Links section.
-"Bug Tracker" = "https://github.com/timhughes/cookiecutter-poetry/issues"
+"Bug Tracker" = "https://github.com/msato-ok/cookiecutter-cli-poetry/issues"
 
 [tool.poetry.dependencies]
-python = "^3.8.0"
+python = "^3.9.0"
 cookiecutter = "^2.1.1"
 pytest-cookies = "^0.6.1"
 
@@ -36,6 +36,7 @@ vulture = "^2.3"
 jedi-language-server = "^0.22.0"
 reorder-python-imports = "^2.3.6"
 pyinstaller = "^4.1"
+pre-commit = "^2.20.0"
 
 [build-system]
 requires = ["poetry_core>=1.0.0"]

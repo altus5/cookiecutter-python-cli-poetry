@@ -26,7 +26,7 @@ classifiers = [
 {%- endif %}
 
 [tool.poetry.dependencies]
-python = "^3.8.0"
+python = "^3.9.0"
 {%- if cookiecutter.command_line_interface == "click" %}
 click = "^8.0.1"
 {%- endif %}
@@ -52,6 +52,7 @@ vulture = "^2.3"
 {%- if cookiecutter.command_line_interface != "no cli" %}
 pyinstaller = "^4.1"
 {%- endif %}
+pre-commit = "^2.20.0"
 
 [build-system]
 requires = ["poetry_core>=1.0.0"]
