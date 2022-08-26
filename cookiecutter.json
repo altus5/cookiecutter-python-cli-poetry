@@ -16,6 +16,7 @@
     "click",
     "no cli"
   ],
+  "use_mysql": "n",
   "use_jupyterlab": "n",
   "add_badges": "y"
 }

@@ -1,12 +1,44 @@
 version: '3'
 
+{%- if cookiecutter.use_mysql == "y" %}
+volumes:
+  local_mysql_data: {}
+{%- endif %}
+
 services:
   app:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
+      dockerfile: ./docker/app/Dockerfile
     image: {{ cookiecutter.project_slug }}
     container_name: {{ cookiecutter.project_slug }}
     volumes:
       - .:/app:z
+    env_file:
+      - ./.envs/.mysql
     command: /bin/sh -c "while sleep 1000; do :; done"
+
+{%- if cookiecutter.use_mysql == "y" %}
+  mysql:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    image: telepoint-converter-mysql
+    container_name: telepoint-converter-mysql
+    env_file:
+      - ./.envs/.mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    ports:
+      - "3306:3306"
+    volumes:
+      - local_mysql_data:/var/lib/mysql:Z
+      - ./docker/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-ppassword"]
+      interval: 20s
+      timeout: 10s
+      retries: 3
+    restart: on-failure:10
+
+{%- endif %}

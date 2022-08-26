@@ -1,0 +1,7 @@
+# MySQL
+# ------------------------------------------------------------------------------
+DB_HOST=mysql
+DB_PORT=3306
+DB_NAME={{ cookiecutter.module_name }}_db
+DB_USER=debug
+DB_PASSWORD=debug

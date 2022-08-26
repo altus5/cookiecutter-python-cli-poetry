@@ -21,6 +21,7 @@
   "extensions": [
     "ms-python.python",
     "yzhang.markdown-all-in-one",
+    "bierner.markdown-mermaid",
     "editorconfig.editorconfig"
   ]
   // Use 'forwardPorts' to make a list of ports inside the container available locally.

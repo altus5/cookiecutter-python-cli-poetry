@@ -2,9 +2,14 @@
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "/home/develop/.local/bin/flake8",
   "python.linting.flake8Args": ["--config=${workspaceFolder}/.config/flake8"],
   "python.linting.lintOnSave": true,
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyPath": "/home/develop/.local/bin/mypy",
   "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/home/develop/.local/bin//black",
+  "python.sortImports.path": "/home/develop/.local/bin/isort",
   "python.languageServer": "Pylance",
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
@@ -17,5 +22,6 @@
       "source.organizeImports": true
     }
   },
+  "python.defaultInterpreterPath": "/usr/local/bin/python",
   "markdown.extension.toc.levels": "2..4"
 }
