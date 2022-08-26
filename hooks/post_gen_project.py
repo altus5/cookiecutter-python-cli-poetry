@@ -8,11 +8,11 @@ import shutil
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 
-def remove_file(filepath):
+def remove_file(filepath: str) -> None:
     os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
 
-def remove_dir(filepath):
+def remove_dir(filepath: str) -> None:
     shutil.rmtree(os.path.join(PROJECT_DIRECTORY, filepath))
 
 
@@ -20,6 +20,7 @@ if __name__ == "__main__":
 
     if "{{ cookiecutter.use_mysql }}" != "y":
         remove_dir("docker/mysql")
+        remove_dir(".envs/mysql")
 
     if "{{ cookiecutter.use_jupyterlab }}" != "y":
         remove_dir("notebooks")
