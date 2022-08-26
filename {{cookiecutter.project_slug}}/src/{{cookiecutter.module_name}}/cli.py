@@ -1,22 +1,23 @@
+import logging
 import os
 import sys
-import yaml
-import logging
+
 import click
+import yaml
 
 import {{cookiecutter.module_name}}
 from {{cookiecutter.module_name}}.app import App
 
 if sys.stdout.isatty():
-# You're running in a real terminal
-    LOG_FORMAT="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    # You're running in a real terminal
+    LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 else:
-    LOG_FORMAT="%(name)s - %(levelname)s - %(message)s"
+    LOG_FORMAT = "%(name)s - %(levelname)s - %(message)s"
 
 logging.basicConfig(
     level=getattr(logging, os.getenv("LOGLEVEL", "INFO").upper()),
     format=LOG_FORMAT,
-    datefmt="%Y-%m-%dT%H:%M:%S"
+    datefmt="%Y-%m-%dT%H:%M:%S",
 )
 
 logger = logging.getLogger("{{cookiecutter.module_name}}")
@@ -24,13 +25,15 @@ logger = logging.getLogger("{{cookiecutter.module_name}}")
 # set levels for other modules
 logging.getLogger("urllib3").setLevel(logging.WARNING)
 
+
 @click.group()
-def cli():
+def cli() -> None:
     pass
+
 
 @cli.command()
 @click.option("-v", "--verbose", count=True)
-def version(verbose):
+def version(verbose: int) -> None:
     """Displays the version"""
     click.echo("Version: %s" % {{cookiecutter.module_name}}.__version__)
     if verbose > 0:
@@ -45,9 +48,9 @@ def version(verbose):
     "config_file",
     type=click.Path(exists=True),
 )
-def serve(config_file):
+def serve(config_file: str) -> None:
     """Start {{cookiecutter.project_slug}} in server mode"""
-    
+
     settings = {}
     if config_file:
         try:
