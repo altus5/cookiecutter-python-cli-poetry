@@ -30,6 +30,7 @@ lint: ## Runs black, isort, bandit, flake8 in check mode
 	poetry run isort --check .
 	poetry run bandit -r src
 	poetry run flake8 --config=.config/flake8 src tests
+	poetry run mypy .
 
 format: ## Formats you code with Black
 	poetry run isort .
@@ -51,10 +52,12 @@ pyinstaller: install lint test ## Create a binary executable using pyinstaller
 	poetry run pyinstaller src/{{ cookiecutter.module_name }}/cli.py --onefile --name {{ cookiecutter.project_slug }}
 
 {%- endif %}
+
 {%- if cookiecutter.use_jupyterlab == "y" %}
 jupyter: ## run the jupyter-lab server
 	poetry run jupyter-lab
 
 {%- endif %}
+
 run: ## run `poetry run {{ cookiecutter.project_slug }}`
 	poetry run {{ cookiecutter.project_slug }}
