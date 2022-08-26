@@ -46,13 +46,15 @@ COPY ./poetry.* ${APP_HOME}/
 COPY ./pyproject.toml ${APP_HOME}/
 
 # make develop owner of the WORKDIR directory as well.
-RUN chown -R develop:develop ${APP_HOME}
+RUN chown -R $USERNAME:$USERNAME ${APP_HOME}
 
-USER develop
+USER $USERNAME
 
 # Install poetry
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-ENV PATH /home/$USERNAME/.poetry/bin:${APP_HOME}/.venv/bin:$PATH
+ENV PATH /home/$USERNAME/.poetry/bin:${APP_HOME}/.venv/bin:$PATH:/home/$USERNAME/.local/bin
 
+# docker build でコンテナ内に必要なパッケージをインストールしておく
+# コンテナなので virtualenvs は不要
 RUN poetry config virtualenvs.create false \
   && poetry install

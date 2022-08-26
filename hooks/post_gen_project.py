@@ -18,6 +18,9 @@ def remove_dir(filepath):
 
 if __name__ == "__main__":
 
+    if "{{ cookiecutter.use_mysql }}" != "y":
+        remove_dir("docker/mysql")
+
     if "{{ cookiecutter.use_jupyterlab }}" != "y":
         remove_dir("notebooks")
 
