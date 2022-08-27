@@ -29,8 +29,8 @@ lint: ## Runs black, isort, bandit, flake8 in check mode
 	poetry run black --check .
 	poetry run isort --check .
 	poetry run bandit -r src
-	poetry run flake8 --config=.config/flake8 src tests
-	poetry run mypy .
+	poetry run flake8 --config=setup.cfg src tests
+	poetry run mypy --config=setup.cfg .
 
 format: ## Formats you code with Black
 	poetry run isort .
