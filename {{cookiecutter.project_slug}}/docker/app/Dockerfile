@@ -51,10 +51,7 @@ RUN chown -R $USERNAME:$USERNAME ${APP_HOME}
 USER $USERNAME
 
 # Install poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 ENV PATH /home/$USERNAME/.poetry/bin:${APP_HOME}/.venv/bin:$PATH:/home/$USERNAME/.local/bin
 
-# docker build でコンテナ内に必要なパッケージをインストールしておく
-# コンテナなので virtualenvs は不要
-RUN poetry config virtualenvs.create false \
-  && poetry install
+RUN poetry install
