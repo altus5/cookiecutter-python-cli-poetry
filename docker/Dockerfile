@@ -48,11 +48,10 @@ COPY ./pyproject.toml ${APP_HOME}/
 # make develop owner of the WORKDIR directory as well.
 RUN chown -R develop:develop ${APP_HOME}
 
-USER develop
+USER $USERNAME
 
 # Install poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-ENV PATH /home/$USERNAME/.poetry/bin:${APP_HOME}/.venv/bin:$PATH
+RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+ENV PATH /home/$USERNAME/.poetry/bin:${APP_HOME}/.venv/bin:$PATH:/home/$USERNAME/.local/bin
 
-RUN poetry config virtualenvs.create false \
-  && poetry install
+RUN poetry install

@@ -2,15 +2,15 @@
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Path": "/home/develop/.local/bin/flake8",
+  "python.linting.flake8Path": "${workspaceFolder}/.venv/bin/flake8",
   "python.linting.flake8Args": ["--config=${workspaceFolder}/setup.cfg"],
   "python.linting.lintOnSave": true,
   "python.linting.mypyEnabled": true,
-  "python.linting.mypyPath": "/home/develop/.local/bin/mypy",
+  "python.linting.mypyPath": "${workspaceFolder}/.venv/bin/mypy",
   "python.linting.mypyArgs": ["--config=${workspaceFolder}/setup.cfg"],
   "python.formatting.provider": "black",
-  "python.formatting.blackPath": "/home/develop/.local/bin//black",
-  "python.sortImports.path": "/home/develop/.local/bin/isort",
+  "python.formatting.blackPath": "${workspaceFolder}/.venv/bin/black",
+  "python.sortImports.path": "${workspaceFolder}/.venv/bin/isort",
   "python.languageServer": "Pylance",
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
@@ -23,6 +23,6 @@
       "source.organizeImports": true
     }
   },
-  "python.defaultInterpreterPath": "/usr/local/bin/python",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "markdown.extension.toc.levels": "2..4"
 }
