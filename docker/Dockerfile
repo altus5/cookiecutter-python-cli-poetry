@@ -45,8 +45,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./poetry.* ${APP_HOME}/
 COPY ./pyproject.toml ${APP_HOME}/
 
-# make develop owner of the WORKDIR directory as well.
-RUN chown -R develop:develop ${APP_HOME}
+# make $USERNAME owner of the WORKDIR directory as well.
+RUN chown -R $USERNAME:$USERNAME ${APP_HOME}
 
 USER $USERNAME
 
