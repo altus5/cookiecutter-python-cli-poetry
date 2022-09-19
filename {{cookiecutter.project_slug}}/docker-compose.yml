@@ -14,8 +14,13 @@ services:
     container_name: {{ cookiecutter.project_slug }}
     volumes:
       - .:/app:z
+    environment:
+      - COOKIECUTTER_CONFIG=/app/.cookiecutter.yaml
     env_file:
+      - ./.envs/.app
+{%- if cookiecutter.use_mysql == "y" %}
       - ./.envs/.mysql
+{%- endif %}
     command: /bin/sh -c "while sleep 1000; do :; done"
 
 {%- if cookiecutter.use_mysql == "y" %}
