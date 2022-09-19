@@ -30,6 +30,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   less \
   vim \
   ssh \
+  cookiecutter \
+{%- if cookiecutter.use_mysql == "y" %}
+  # mysqlclient
+  default-libmysqlclient-dev \
+{%- endif %}
   # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
   && groupadd --gid $USER_GID $USERNAME \
   && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
@@ -41,9 +46,18 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
-# Requirements are installed here to ensure they will be cached.
-COPY ./poetry.* ${APP_HOME}/
-COPY ./pyproject.toml ${APP_HOME}/
+{%- if cookiecutter.use_jupyterlab == "y" %}
+# jupyterlab は本番環境には不要なので、production 以外のときにインストールする
+RUN \
+  if [ "${BUILD_ENVIRONMENT}" != "production" ]; then \
+    pip install pandas matplotlib ipython-sql \
+    ;; \
+  fi
+{%- endif %}
+
+# # Requirements are installed here to ensure they will be cached.
+# COPY ./poetry.* ${APP_HOME}/
+# COPY ./pyproject.toml ${APP_HOME}/
 
 # make develop owner of the WORKDIR directory as well.
 RUN chown -R $USERNAME:$USERNAME ${APP_HOME}
@@ -54,4 +68,4 @@ USER $USERNAME
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 ENV PATH /home/$USERNAME/.poetry/bin:${APP_HOME}/.venv/bin:$PATH:/home/$USERNAME/.local/bin
 
-RUN poetry install
+# RUN poetry install

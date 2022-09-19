@@ -22,8 +22,9 @@ classifiers = [
 python = "^3.9.0"
 cookiecutter = "^2.1.1"
 pytest-cookies = "^0.6.1"
+PyYAML = "^6.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^5.0.0"
 pytest-cov = "^2.10.1"
 black = "^22.0.0"
@@ -38,6 +39,7 @@ mypy = "^0.971"
 reorder-python-imports = "^2.3.6"
 pyinstaller = "^4.1"
 pre-commit = "^2.20.0"
+types-PyYAML = "^6.0.11"
 
 [build-system]
 requires = ["poetry_core>=1.0.0"]

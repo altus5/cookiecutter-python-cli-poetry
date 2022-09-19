@@ -18,5 +18,6 @@
   ],
   "use_mysql": "n",
   "use_jupyterlab": "n",
-  "add_badges": "y"
+  "use_mkdocs": "n",
+  "add_badges": "n"
 }

@@ -77,10 +77,6 @@ You can then use the Makefile for other common commands
     make pyinstaller         # Create a binary executable using pyinstaller
     make run                 # run `poetry run example-project`
 
-## diable venv
-
-Dockerコンテナで使用することを想定しているため、コンテナ内の Poetry は virtualenv を使わない設定になっています。
-
 ## pre-commit
 
 pre-commit を有効にするには、コンテナ起動後、以下のコマンドで .git 以下にインストールしてください。

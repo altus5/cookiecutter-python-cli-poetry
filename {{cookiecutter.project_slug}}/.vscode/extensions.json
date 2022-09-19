@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+{%- if cookiecutter.use_jupyterlab == "y" %}
+    // Jupyter Notebook
+    "ms-toolsai.jupyter",
+{%- endif %}
+    // markdown
+    "yzhang.markdown-all-in-one",
+    // markdown mermaid.js
+    "bierner.markdown-mermaid",
+    // excel to markdown table
+    "csholmq.excel-to-markdown-table",
+{%- if cookiecutter.use_mysql == "y" %}
+    // mysql
+    "cweijan.vscode-mysql-client2",
+{%- endif %}
+    // gitlens
+    "eamodio.gitlens"
+  ]
+}

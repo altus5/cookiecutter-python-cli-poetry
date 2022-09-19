@@ -41,9 +41,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
-# Requirements are installed here to ensure they will be cached.
-COPY ./poetry.* ${APP_HOME}/
-COPY ./pyproject.toml ${APP_HOME}/
+# # Requirements are installed here to ensure they will be cached.
+# COPY ./poetry.* ${APP_HOME}/
+# COPY ./pyproject.toml ${APP_HOME}/
 
 # make $USERNAME owner of the WORKDIR directory as well.
 RUN chown -R $USERNAME:$USERNAME ${APP_HOME}
@@ -54,4 +54,4 @@ USER $USERNAME
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
 ENV PATH /home/$USERNAME/.poetry/bin:${APP_HOME}/.venv/bin:$PATH:/home/$USERNAME/.local/bin
 
-RUN poetry install
+# RUN poetry install

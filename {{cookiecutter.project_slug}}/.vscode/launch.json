@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "cli.py version",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/{{ cookiecutter.module_name }}/cli.py",
+      "args": [
+        "version"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": false
+    }
+  ]
+}
