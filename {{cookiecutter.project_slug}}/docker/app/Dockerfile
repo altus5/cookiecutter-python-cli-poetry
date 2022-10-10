@@ -46,15 +46,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
   && apt-get purge -y --auto-remove -o APT::AutoRemove::RecommendsImportant=false \
   && rm -rf /var/lib/apt/lists/*
 
-{%- if cookiecutter.use_jupyterlab == "y" %}
-# jupyterlab は本番環境には不要なので、production 以外のときにインストールする
-RUN \
-  if [ "${BUILD_ENVIRONMENT}" != "production" ]; then \
-    pip install pandas matplotlib ipython-sql \
-    ;; \
-  fi
-{%- endif %}
-
 # # Requirements are installed here to ensure they will be cached.
 # COPY ./poetry.* ${APP_HOME}/
 # COPY ./pyproject.toml ${APP_HOME}/
