@@ -11,7 +11,7 @@ services:
       context: .
       dockerfile: ./docker/app/Dockerfile
     image: {{ cookiecutter.project_slug }}
-    container_name: {{ cookiecutter.project_slug }}
+    container_name: {{ cookiecutter.project_slug }}-app
     volumes:
       - .:/app:z
     environment:
@@ -28,8 +28,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/mysql/Dockerfile
-    image: telepoint-converter-mysql
-    container_name: telepoint-converter-mysql
+    image: {{ cookiecutter.project_slug }}-mysql
+    container_name: {{ cookiecutter.project_slug }}-mysql
     env_file:
       - ./.envs/.mysql
     environment:

@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "ms-python.python",
 {%- if cookiecutter.use_jupyterlab == "y" %}
     // Jupyter Notebook
     "ms-toolsai.jupyter",

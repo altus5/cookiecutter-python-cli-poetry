@@ -19,10 +19,6 @@
   "settings": {},
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-    "ms-python.python",
-    "yzhang.markdown-all-in-one",
-    "editorconfig.editorconfig",
-    "ms-vscode.makefile-tools"
   ]
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
